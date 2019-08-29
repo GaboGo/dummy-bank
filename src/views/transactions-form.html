@@ -1,0 +1,15 @@
+<section class="form-section">
+    <header>
+        <img src="../assets/icons/exchange.png" alt="suitcase"cclass="suitcase">
+        <h1>Make a Transfer</h1>
+    </header>
+    <form ng-submit="submit()">
+        <label for="from">FROM ACCOUNT</label>
+        <input ng-model="from" type="text" name="from" id="from" placeholder="Free Checking(4692) - {{totalAmount}}" value="Free Checking(4692) - {{totalAmount}}" disabled>
+        <label for="to">TO ACCOUNT</label>
+        <input ng-model="to" type="text" name="to" id="to" placeholder="Georgia Power Electric Company" required>
+        <label for="to">AMOUNT</label>
+        <input ng-model="amount" type="number" name="amount" id="amount" placeholder="$0.00" min="0.01" step="0.01" max="500.00" required>
+        <input type="submit" class="submit-btn" value="SUBMIT">
+    </form>
+</section>

@@ -1,0 +1,42 @@
+<section class="transactions-section">
+    <header>
+        <img src="../assets/icons/suitcase.png" alt="suitcase"cclass="suitcase">
+        <h1>Recent Transactions</h1>
+    </header>
+    <section class="filters-section">
+        <input ng-model="mySearch" type="search" name="search" class="search" placeholder="Search by typing...">
+        <span><strong>Sort by</strong></span>
+        <div class="filters">
+            <ul>
+                <li ng-click="orderBy('transactionDate')" class="filter-date">
+                    <p>DATE
+                        <span class="sortorder" ng-show="myOrderBy === 'transactionDate'" ng-class="{reverse: reverse}"></span>
+                    </p>
+                </li>
+                <li ng-click="orderBy('merchant')" class="filter-beneficiary">
+                    <p>BENEFICIARY
+                        <span class="sortorder" ng-show="myOrderBy === 'merchant'" ng-class="{reverse: !reverse}"></span>
+                    </p>
+                </li>
+                <li ng-click="orderBy('amount')" class="filter-amount">
+                    <p>AMOUNT
+                        <span class="sortorder" ng-show="myOrderBy === 'amount'" ng-class="{reverse: reverse}"></span>
+                    </p>
+                </li>
+            </ul>
+        </div>
+    </section>
+    <section class="list-section">
+        <ul id="myList">
+            <li class="record" ng-repeat="record in transactions | filter:mySearch | orderBy:myOrderBy:reverse" style="border-left : {{record.categoryCode}} 10px solid;">
+                <span class="date"> {{record.transactionDate | date:'MMM dd'}} </span>
+                <img ng-src="{{record.merchantLogo}}" alt="merchant-img" class="C-img" height="40" width="40">
+                <div class="record-info">
+                    <p><strong>{{record.merchant}}</strong></p>
+                    <p>{{record.transactionType}}</p>
+                </div>
+                <span class="amount"><strong>-{{record.amount | currency}}</strong></span>
+            </li>
+        </ul>
+    </section>
+</section>
