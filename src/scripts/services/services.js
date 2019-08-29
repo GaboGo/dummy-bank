@@ -1,34 +1,31 @@
-angular.module('appServices', [])
+(function(){
+    angular.module('appServices', ['firebase'])
 
-.factory("Transactions", function($http) {
-    var transactions = [];
-
-    return {
-        all: function(callback) {
+    .factory("Transactions", function($firebaseArray) {
+        var transactions = [];
+        const ref = firebase.database().ref().child('data');
         
-            $http.get('../mock/transactions.json').success(function(data)
-            {
-                transactions = data.data;
+        return {
+            all: function(callback) {
 
+                transactions = $firebaseArray(ref);
                 transactions.map(function(record){
-                    record.amount = parseFloat(record.amount);
+                  record.amount = parseFloat(record.amount);
                 });
-                
                 callback(transactions);
-            });
-
-        },
-        get: function(transactionId) {
-
-            for (var i = 0; i < transactions.length; i++) {
                 
-                if (transactions[i].id == parseInt(transactionId)) {
-                        return transactions[i];
-                }
-            }
-            return null;
-        }
-    };
-})
+            },
+            get: function(transactionId) {
 
+                for (var i = 0; i < transactions.length; i++) {
+                    
+                    if (transactions[i].id == parseInt(transactionId)) {
+                            return transactions[i];
+                    }
+                }
+                return null;
+            }
+        };
+    })
+})();
 
