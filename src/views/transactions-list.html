@@ -27,7 +27,10 @@
         </div>
     </section>
     <section class="list-section">
-        <ul id="myList">
+        <div ng-show="transactions.length <= 0" class="loading">
+            <img src="../assets/loading.gif" alt="loading" width="400" height="300">
+        </div>
+        <ul ng-show="transactions.length > 0" id="myList">
             <li class="record" ng-repeat="record in transactions | filter:mySearch | orderBy:myOrderBy:reverse" style="border-left : {{record.categoryCode}} 10px solid;">
                 <span class="date"> {{record.transactionDate | date:'MMM dd'}} </span>
                 <img ng-src="{{record.merchantLogo}}" alt="merchant-img" class="C-img" height="40" width="40">

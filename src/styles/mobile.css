@@ -30,6 +30,10 @@ ul
   text-indent: -9999px;
 }
 
+.loading{
+  text-align: center;
+}
+
 .wrapper {
   background: url(../../assets/background.jpg) no-repeat center center;
   background-size: cover;

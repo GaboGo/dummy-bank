@@ -5,10 +5,7 @@
 
         $scope.transactions = [];
         $scope.totalAmount = 5824.76;
-        
-        Transactions.all(function(data){
-            $scope.transactions = data;
-        });
+        $scope.transactions = Transactions.all();
         
     })
 
@@ -23,7 +20,7 @@
         
     })
 
-    .controller('FormController', function($scope){
+    .controller('FormController', function($scope, Transactions){
         $scope.record = {}
         $scope.categoryCodes = ["#12a580","#c12020","#c89616","#e25a2c","#1180aa","#12a580","#fbbb1b"]
         $scope.transactionTypes = ["Card Payment","Online Transfer","Transaction","Automatic Debit"]
@@ -40,8 +37,8 @@
                     transactionDate: new Date().getTime(),
                     transactionType: $scope.transactionTypes[Math.floor(Math.random() * 2)]
                 }
-                
-                $scope.transactions.push($scope.record);
+
+                Transactions.add($scope.record);
                 $scope.totalAmount -= Math.round(this.amount * 100) / 100;
                 $scope.record = {}
                 this.amount = "";

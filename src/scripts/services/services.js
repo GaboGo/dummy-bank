@@ -3,17 +3,14 @@
 
     .factory("Transactions", function($firebaseArray) {
         var transactions = [];
-        const ref = firebase.database().ref().child('data');
+        const db = firebase.database().ref().child('data');
         
         return {
-            all: function(callback) {
+            all: function() {
 
-                transactions = $firebaseArray(ref);
-                transactions.map(function(record){
-                  record.amount = parseFloat(record.amount);
-                });
-                callback(transactions);
-                
+                transactions = $firebaseArray(db);
+                return transactions;
+
             },
             get: function(transactionId) {
 
@@ -24,6 +21,9 @@
                     }
                 }
                 return null;
+            },
+            add: function(transaction) {
+                transactions.$add(transaction);
             }
         };
     })
