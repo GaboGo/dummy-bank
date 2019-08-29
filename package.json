@@ -1,0 +1,23 @@
+{
+  "name": "dummy-bank",
+  "version": "1.0.0",
+  "description": "Single page application developed with Angular JS & Firebase to track the transactions for a dummy bank",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/GaboGo/dummy-bank.git"
+  },
+  "author": "Gabriel Goethe",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/GaboGo/dummy-bank/issues"
+  },
+  "homepage": "https://github.com/GaboGo/dummy-bank#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}
