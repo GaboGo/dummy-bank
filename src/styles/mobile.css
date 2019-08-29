@@ -32,6 +32,8 @@ ul
 
 .loading{
   text-align: center;
+  width: 200px;
+  height: 150px;
 }
 
 .wrapper {
