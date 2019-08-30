@@ -1,17 +1,3 @@
-const express = require('express');
-const app = express();
-
-app.set('src', path.join(__dirname, 'src'));
-app.set('view engine', 'ejs');
-
-app.use(express.static('./src'));
-
-app.set('port', process.env.PORT || 3000 );
-
-app.listen(app.get('port'), () => {
-    console.log("running server...")
-});
-
 const cool = require('cool-ascii-faces')
 const express = require('express')
 const path = require('path')
