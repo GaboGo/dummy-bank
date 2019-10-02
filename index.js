@@ -10,7 +10,7 @@ function keepAwake(){
       http.get("http://ggoethe-bank.herokuapp.com");
       http.get("http://goethe-task-manager.herokuapp.com");
       console.log("keepAwake heroku apps")
-  }, 1800000); // every 30 minutes (1800000)
+  }, 1200000); // every 20 minutes (1200000)
 }
 
 keepAwake();
