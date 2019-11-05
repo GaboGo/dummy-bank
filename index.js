@@ -6,11 +6,14 @@ const http = require("http")
 
 function keepAwake(){
   setInterval(function() {
-      http.get("http://gabrielgoethe.herokuapp.com");
-      http.get("http://ggoethe-bank.herokuapp.com");
-      http.get("http://goethe-task-manager.herokuapp.com");
-      console.log("keepAwake heroku apps")
-  }, 1200000); // every 20 minutes (1200000)
+      var time = new Date().getHours;
+      if(time <= 20){
+        http.get("http://gabrielgoethe.herokuapp.com");
+        http.get("http://ggoethe-bank.herokuapp.com");
+        http.get("http://goethe-task-manager.herokuapp.com");
+        console.log("keepAwake heroku apps")
+      }
+  }, 3300000); // every 55 minutes (3300000)
 }
 
 keepAwake();
