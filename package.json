@@ -19,7 +19,7 @@
   "homepage": "https://github.com/GaboGo/dummy-bank#readme",
   "dependencies": {
     "cool-ascii-faces": "^1.3.4",
-    "express": "^4.17.1"
+    "express": "^4.17.3"
   },
   "engines": {
     "node": "8.11.4"
